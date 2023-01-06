@@ -1,3 +1,8 @@
+buildscript {
+    dependencies {
+        classpath("com.google.gms:google-services:4.3.14")
+    }
+}
 plugins {
     //trick: for the same plugin versions in all sub-modules
     id("com.android.application").version("7.3.1").apply(false)

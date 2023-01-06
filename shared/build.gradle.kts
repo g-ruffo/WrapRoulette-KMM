@@ -17,7 +17,10 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))

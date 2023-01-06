@@ -8,3 +8,5 @@ captures
 .cxx
 local.properties
 xcuserdata
+/androidApp/google-services.json
+/iosApp/iosApp.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
