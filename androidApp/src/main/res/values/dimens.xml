@@ -1,0 +1,25 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="login_horizontal_margin">35dp</dimen>
+    <dimen name="login_edit_text_radius">10dp</dimen>
+    <dimen name="backButtonSize">32dp</dimen>
+    <dimen name="backButtonLayoutMargin">24dp</dimen>
+    <dimen name="poolDetailCardSubTextSize">14sp</dimen>
+    <dimen name="poolDetailCardTextSize">24sp</dimen>
+    <dimen name="poolDetailHeaderTextSize">12sp</dimen>
+    <dimen name="poolEditTextHorizontal">24dp</dimen>
+    <dimen name="poolImageMaxSize">120dp</dimen>
+    <dimen name="topMarginInputLayout">24dp</dimen>
+    <dimen name="doubleTextInputLayoutPadding">6dp</dimen>
+    <dimen name="dialogTitleTopMargin">18dp</dimen>
+    <dimen name="dialogMessageHorizontalMargin">24dp</dimen>
+    <dimen name="dialogMessageTopMargin">6dp</dimen>
+    <dimen name="expandedFabBottomMargin">24dp</dimen>
+    <dimen name="listItemSecondaryImageMargin">22dp</dimen>
+    <dimen name="listItemSecondaryImageSize">24dp</dimen>
+</resources>

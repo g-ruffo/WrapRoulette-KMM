@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="ca.veltus.wraproulette.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_addPoolFragment"
+            app:destination="@id/addPoolFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_pools"
+            app:destination="@id/nav_pools"
+            app:popUpTo="@id/nav_pools"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_account"
+            app:destination="@id/nav_account"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_pools"
+        android:name="ca.veltus.wraproulette.ui.pools.PoolsFragment"
+        android:label="@string/pools"
+        tools:layout="@layout/fragment_pools">
+        <action
+            android:id="@+id/action_nav_pools_to_addPoolFragment"
+            app:destination="@id/addPoolFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_nav_pools_to_joinPoolFragment"
+            app:destination="@id/joinPoolFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_nav_pools_to_nav_home"
+            app:destination="@id/nav_home"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="ca.veltus.wraproulette.ui.account.AccountFragment"
+        android:label="@string/accountSettings"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/addPoolFragment"
+        android:name="ca.veltus.wraproulette.ui.pools.createpool.AddPoolFragment"
+        tools:layout="@layout/fragment_add_pool">
+        <argument
+            android:name="poolId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_addPoolFragment_to_nav_home"
+            app:destination="@id/nav_home"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/joinPoolFragment"
+        android:name="ca.veltus.wraproulette.ui.pools.joinpool.JoinPoolFragment"
+        android:label="@string/joinPool"
+        tools:layout="@layout/fragment_join_pool">
+        <action
+            android:id="@+id/action_joinPoolFragment_to_nav_home"
+            app:destination="@id/nav_home"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/nav_pools"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>
