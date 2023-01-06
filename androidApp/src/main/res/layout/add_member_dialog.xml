@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ca.veltus.wraproulette.ui.home.HomeViewModel" />
+
+        <variable
+            name="member"
+            type="ca.veltus.wraproulette.data.objects.Member" />
+
+        <import type="ca.veltus.wraproulette.utils.Constants" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.home.dialog.AddMemberDialogFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/DialogTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@{member == null ? @string/addMemberDialogTitle : @string/editMemberDialogTitle}"
+                app:layout_constraintBottom_toTopOf="@+id/subtitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Add Member" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                style="@style/DialogMessageStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{member == null ? @string/createTempMemberDialogMessage : @string/editTempMemberDialogMessage(member.displayName)}"
+                app:layout_constraintBottom_toTopOf="@+id/nameEditTextLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Enter temporary pool members details below." />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameEditTextLayout"
+                style="@style/DialogTextInputOuterFieldStyle"
+                errorRequired="@{ viewModel.errorNameText }"
+                errorRequiredInput="@{viewModel.newMemberName}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/poolEditTextHorizontal"
+                android:layout_marginTop="@dimen/topMarginInputLayout"
+                app:layout_constraintBottom_toTopOf="@+id/departmentEditTextLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subtitle"
+                app:startIconDrawable="@drawable/ic_baseline_person_24"
+                tools:helperText="Required*">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameInputEditText"
+                    style="@style/DialogTextInputInnerFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM "
+                    android:hint="@string/memberNameHint"
+                    android:inputType="textCapWords"
+                    android:onTextChanged="@{() -> viewModel.clearErrorHelperText(Constants.NAME_ERROR)}"
+                    android:text="@={viewModel.newMemberName}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/departmentEditTextLayout"
+                style="@style/DialogTextInputOuterFieldStyle"
+                errorRequired="@{ viewModel.errorDepartmentText }"
+                errorRequiredInput="@{viewModel.newMemberDepartment}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/poolEditTextHorizontal"
+                app:layout_constraintBottom_toTopOf="@+id/emailEditTextLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameEditTextLayout"
+                app:startIconDrawable="@drawable/ic_baseline_work_24"
+                tools:helperText="Required*">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/departmentInputEditText"
+                    style="@style/DialogTextInputInnerFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM "
+                    android:hint="@string/memberDepartmentHint"
+                    android:inputType="textCapWords"
+                    android:onTextChanged="@{() -> viewModel.clearErrorHelperText(Constants.DEPARTMENT_ERROR)}"
+                    android:text="@={viewModel.newMemberDepartment}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailEditTextLayout"
+                style="@style/DialogTextInputOuterFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/poolEditTextHorizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/departmentEditTextLayout"
+                app:startIconDrawable="@drawable/ic_baseline_email_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInputEditText"
+                    style="@style/DialogTextInputInnerFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/memberEmailHint"
+                    android:inputType="textEmailAddress"
+                    android:text="@={viewModel.newMemberEmail}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

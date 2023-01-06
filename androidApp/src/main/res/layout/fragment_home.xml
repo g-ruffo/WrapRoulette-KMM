@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ca.veltus.wraproulette.ui.home.HomeViewModel" />
+
+        <variable
+            name="fragment"
+            type="ca.veltus.wraproulette.ui.home.HomeFragment" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/greyBackgroundColor"
+        tools:context=".ui.home.HomeFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.showNoData == false ? View.VISIBLE : View.GONE}">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bluePrimary"
+                android:contentDescription="@string/homeFragmentTabLayoutDescription"
+                android:elevation="44dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tabIndicatorColor="@color/darkOrange"
+                app:tabMode="fixed"
+                app:tabTextColor="@color/loginTextDarkBackgroundColor" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tabLayout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/bidFab"
+                style="@style/FabButton"
+                isScrolling="@{viewModel.isScrolling}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/viewPager"
+                android:layout_alignBottom="@id/viewPager"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:clickable="@{viewModel.isPoolAdmin == false ? true : false}"
+                android:contentDescription="@string/placeBetFabDescription"
+                android:enabled="@{viewModel.isBettingOpen == true ? true : false}"
+                android:onClick="@{() -> fragment.launchBetAndWrapDialog(false)}"
+                android:src="@drawable/ic_baseline_casino_24"
+                android:visibility="@{viewModel.isPoolAdmin == false ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="DuplicateSpeakableTextCheck"
+                tools:visibility="visible" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/adminFabLayout"
+                isScrolling="@{viewModel.isScrolling}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="100dp"
+                android:visibility="@{viewModel.isPoolAdmin == true ? View.VISIBLE : View.GONE}"
+                tools:ignore="HardcodedText"
+                tools:visibility="visible">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/adminExpandableFab"
+                    style="@style/ExtendedFabButton"
+                    setExpandableFabAdminState="@{viewModel.isPoolAdmin}"
+                    setExpandableFabState="@{viewModel.isFabClicked}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:onClick="@{() -> viewModel.toggleFabButton()}"
+                    android:text="@string/actions"
+                    app:icon="@drawable/ic_baseline_add_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/setWrapAdminFab"
+                    style="@style/ExtendedSecondaryButton"
+                    setExpandableFabEnabledState="@{viewModel.isFabClicked}"
+                    setExpandableFabVisibleState="@{viewModel.isPoolAdmin}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/expandedFabBottomMargin"
+                    android:contentDescription="@string/setWrapTimeFabDescription"
+                    android:onClick="@{() -> fragment.launchBetAndWrapDialog(true)}"
+                    android:text="@string/wrap"
+                    app:layout_constraintBottom_toTopOf="@+id/adminExpandableFab"
+                    app:layout_constraintEnd_toEndOf="@+id/adminExpandableFab"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/betAdminFab"
+                    style="@style/ExtendedSecondaryButton"
+                    setExpandableFabEnabledState="@{viewModel.isFabClicked}"
+                    setExpandableFabVisibleState="@{viewModel.isPoolAdmin}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/expandedFabBottomMargin"
+                    android:contentDescription="@string/placeBetFabDescription"
+                    android:elevation="8dp"
+                    android:enabled="@{viewModel.isBettingOpen == true ? true : false}"
+                    android:onClick="@{() -> fragment.launchBetAndWrapDialog(false)}"
+                    android:text="@string/bet"
+                    app:layout_constraintBottom_toTopOf="@+id/setWrapAdminFab"
+                    app:layout_constraintEnd_toEndOf="@+id/setWrapAdminFab"
+                    app:layout_constraintStart_toStartOf="@+id/setWrapAdminFab"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/noDataTextView"
+            style="@style/NoDataTextImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noActivePoolText"
+            android:visibility="@{viewModel.showNoData == true ? View.VISIBLE : View.GONE}"
+            app:drawableTopCompat="@drawable/folder_open_48"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressBar"
+            style="@style/ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fadeVisible="@{viewModel.showLoading.booleanValue()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
