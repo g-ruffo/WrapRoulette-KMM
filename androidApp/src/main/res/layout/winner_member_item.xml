@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="member"
+            type="ca.veltus.wraproulette.data.objects.Member" />
+
+        <variable
+            name="viewModel"
+            type="ca.veltus.wraproulette.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="20dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilePictureImageView"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_baseline_person_24"
+            app:civ_border_color="@color/earningsGreen"
+            app:civ_border_width="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/memberNameTextView"
+            style="@style/ListItemTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@{member.displayName}"
+            android:textColor="@color/textTitleColor"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/memberDepartmentTextView"
+            app:layout_constraintStart_toEndOf="@+id/profilePictureImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="John Doe" />
+
+        <TextView
+            android:id="@+id/memberDepartmentTextView"
+            style="@style/ListItemSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{member.department}"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/memberNameTextView"
+            app:layout_constraintTop_toBottomOf="@id/memberNameTextView"
+            tools:text="Grips" />
+
+        <TextView
+            android:id="@+id/memberBidTimeTextView"
+            style="@style/ListItemValueText"
+            dateToStringTimeConverter="@{member.bidTime}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blueLight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/line"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/memberNameTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="11:58" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="2dp"
+            android:layout_marginVertical="14dp"
+            android:background="#c0c0c0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/memberEarningsTextView"
+            app:layout_constraintStart_toEndOf="@id/memberBidTimeTextView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/memberEarningsTextView"
+            style="@style/ListItemValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`$` + member.winnings}"
+            android:textColor="@color/winningsGreen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="$20.00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
