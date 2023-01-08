@@ -505,9 +505,7 @@ class HomeViewModel @Inject constructor(
      */
     fun navigateToEditPool() {
         if (_isPoolAdmin.value && currentPool.value != null) {
-            val action = HomeFragmentDirections.actionNavHomeToAddPoolFragment()
-            action.poolId = currentPool.value!!.docId
-            navigationCommand.postValue(NavigationCommand.To(action))
+            navigationCommand.postValue(NavigationCommand.To(HomeFragmentDirections.actionNavHomeToAddPoolFragment(currentPool.value!!.docId)))
         } else {
             showToast.postValue(stringResourcesProvider.getString(R.string.unableToEditPool))
         }
