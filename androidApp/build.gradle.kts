@@ -21,7 +21,7 @@ android {
         versionName = "1.0"
     }
     buildFeatures {
-        compose = true
+        viewBinding = true
         dataBinding = true
     }
     composeOptions {
