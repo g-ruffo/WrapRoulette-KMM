@@ -4,11 +4,9 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("com.google.gms.google-services")
-//    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
-//    id("kotlin-kapt")
-//    id("androidx.navigation.safeargs")
-//    id("com.google.dagger.hilt.android")
-//    id("kotlin-parcelize")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs.kotlin")
 //    id("com.google.firebase.crashlytics")
 }
 
@@ -38,6 +36,10 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
+    }
+    // Allow references to generated code
+    kapt {
+        correctErrorTypes = true
     }
 }
 
@@ -94,7 +96,7 @@ dependencies {
     testImplementation("androidx.arch.core:core-testing:2.1.0")
     implementation("androidx.test.ext:junit-ktx:1.1.4")
     testImplementation("com.google.dagger:hilt-android-testing:2.44")
-//    kaptTest("com.google.dagger:hilt-android-compiler:2.44")
+    kaptTest("com.google.dagger:hilt-android-compiler:2.44")
 
     // Android Testing Dependencies
     androidTestImplementation("androidx.test.ext:junit:1.1.4")
@@ -107,6 +109,6 @@ dependencies {
 
     // Hilt Dependencies
     implementation("com.google.dagger:hilt-android:2.44")
-//    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
 
 }
