@@ -7,16 +7,16 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
-//    id("com.google.firebase.crashlytics")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
     namespace = "ca.veltus.wraproulettekmm.android"
-    compileSdk = 32
+    compileSdk = 33
     defaultConfig {
         applicationId = "ca.veltus.wraproulettekmm.android"
         minSdk = 24
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
     }
@@ -71,7 +71,7 @@ dependencies {
 
     // Glide Dependencies
     implementation("com.github.bumptech.glide:glide:4.14.2")
-//    kapt("com.github.bumptech.glide:compiler:4.14.2")
+    kapt("com.github.bumptech.glide:compiler:4.14.2")
 
     // Lifecycle Dependencies
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
@@ -103,11 +103,10 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-contrib:3.3.0")
     implementation("androidx.test:core-ktx:1.5.0")
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.44")
-//    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44")
     androidTestImplementation("androidx.test.espresso:espresso-accessibility:3.3.0")
 
     // Hilt Dependencies
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
-
 }
