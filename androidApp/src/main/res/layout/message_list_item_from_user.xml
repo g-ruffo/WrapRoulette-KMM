@@ -7,7 +7,7 @@
 
         <variable
             name="message"
-            type="ca.veltus.wraproulette.data.objects.Message" />
+            type="ca.veltus.wraproulettekmm.android.data.objects.Message" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
