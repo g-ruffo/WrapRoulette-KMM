@@ -14,7 +14,7 @@ import ca.veltus.wraproulettekmm.android.base.BaseFragment
 import ca.veltus.wraproulettekmm.android.data.ErrorMessage
 import ca.veltus.wraproulettekmm.android.data.Result
 import ca.veltus.wraproulettekmm.android.databinding.FragmentLoginBinding
-import ca.veltus.wraproulette.ui.WrapRouletteActivity
+import ca.veltus.wraproulettekmm.android.ui.WrapRouletteActivity
 import ca.veltus.wraproulettekmm.android.utils.Constants
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
