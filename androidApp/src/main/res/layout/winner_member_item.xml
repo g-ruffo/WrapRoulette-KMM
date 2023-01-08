@@ -7,7 +7,7 @@
 
         <variable
             name="member"
-            type="ca.veltus.wraproulette.data.objects.Member" />
+            type="ca.veltus.wraproulettekmm.android.data.objects.Member" />
 
         <variable
             name="viewModel"
