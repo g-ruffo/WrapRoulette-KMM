@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="ca.veltus.wraproulette.ui.pools.PoolsViewModel" />
+            type="ca.veltus.wraproulettekmm.android.ui.pools.PoolsViewModel" />
 
         <import type="android.view.View" />
     </data>
