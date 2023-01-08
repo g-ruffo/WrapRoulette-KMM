@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="ca.veltus.wraproulette.ui.home.HomeViewModel" />
+            type="ca.veltus.wraproulettekmm.android.ui.home.HomeViewModel" />
 
         <variable
             name="member"
-            type="ca.veltus.wraproulette.data.objects.Member" />
+            type="ca.veltus.wraproulettekmm.android.data.objects.Member" />
 
-        <import type="ca.veltus.wraproulette.utils.Constants" />
+        <import type="ca.veltus.wraproulettekmm.android.utils.Constants" />
     </data>
 
     <ScrollView

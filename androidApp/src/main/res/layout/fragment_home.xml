@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="ca.veltus.wraproulette.ui.home.HomeViewModel" />
+            type="ca.veltus.wraproulettekmm.android.ui.home.HomeViewModel" />
 
         <variable
             name="fragment"
-            type="ca.veltus.wraproulette.ui.home.HomeFragment" />
+            type="ca.veltus.wraproulettekmm.android.ui.home.HomeFragment" />
 
         <import type="android.view.View" />
 
