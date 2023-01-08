@@ -7,11 +7,11 @@
 
     <activity
         android:id="@+id/loginSignupActivity"
-        android:name="ca.veltus.wraproulette.authentication.LoginSignupActivity"
+        android:name="ca.veltus.wraproulettekmm.android.authentication.LoginSignupActivity"
         android:label="LoginSignupActivity" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="ca.veltus.wraproulette.authentication.login.LoginFragment"
+        android:name="ca.veltus.wraproulettekmm.android.authentication.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -31,12 +31,12 @@
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
-        android:name="ca.veltus.wraproulette.authentication.signup.SignupFragment"
+        android:name="ca.veltus.wraproulettekmm.android.authentication.signup.SignupFragment"
         android:label="SignupFragment"
         tools:layout="@layout/fragment_signup" />
     <fragment
         android:id="@+id/resetPasswordFragment"
-        android:name="ca.veltus.wraproulette.authentication.reset.ResetPasswordFragment"
+        android:name="ca.veltus.wraproulettekmm.android.authentication.reset.ResetPasswordFragment"
         android:label="ResetPasswordFragment"
         tools:layout="@layout/fragment_reset_password" />
 </navigation>
