@@ -7,7 +7,7 @@
 
         <variable
             name="pool"
-            type="ca.veltus.wraproulette.data.objects.Pool" />
+            type="ca.veltus.wraproulettekmm.android.data.objects.Pool" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
