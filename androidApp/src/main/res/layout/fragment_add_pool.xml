@@ -7,15 +7,15 @@
 
         <variable
             name="viewModel"
-            type="ca.veltus.wraproulette.ui.pools.PoolsViewModel" />
+            type="ca.veltus.wraproulettekmm.android.ui.pools.PoolsViewModel" />
 
         <variable
             name="fragment"
-            type="ca.veltus.wraproulette.ui.pools.createpool.AddPoolFragment" />
+            type="ca.veltus.wraproulettekmm.android.ui.pools.createpool.AddPoolFragment" />
 
         <import type="android.view.View" />
 
-        <import type="ca.veltus.wraproulette.utils.Constants" />
+        <import type="ca.veltus.wraproulettekmm.android.utils.Constants" />
 
         <import type="android.text.TextUtils" />
 
