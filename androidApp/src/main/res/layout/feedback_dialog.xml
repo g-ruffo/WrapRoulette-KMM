@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="ca.veltus.wraproulettekmm.authentication.LoginSignupViewModel" />
+            type="ca.veltus.wraproulettekmm.android.authentication.LoginSignupViewModel" />
 
     </data>
 
